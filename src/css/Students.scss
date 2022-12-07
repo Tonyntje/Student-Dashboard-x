@@ -1,0 +1,12 @@
+.student-overview {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .student-profile {
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 2rem;
+        text-align: left;
+    }
+}

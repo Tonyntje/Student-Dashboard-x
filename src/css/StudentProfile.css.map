@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,IADA,CACA,GAAG,CAAC;EACA,aAAa,EAAE,KAAK;CACvB;;AAHL,AAKI,IALA,CAKA,iBAAiB,CAAC;EACd,UAAU,EAAE,IAAI;CACnB",
+    "sources": [
+        "StudentProfile.scss"
+    ],
+    "names": [],
+    "file": "StudentProfile.css"
+}

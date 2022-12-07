@@ -1,0 +1,103 @@
+#root,
+.app {
+  width: 100%;
+  height: 100%;
+  display: block;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+  background: #131420;
+}
+
+#root header,
+.app header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-transition: ease-in .15s opacity;
+  transition: ease-in .15s opacity;
+}
+
+#root header.inactive,
+.app header.inactive {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+#root header .logo,
+.app header .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#root header nav,
+.app header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0 20px;
+  font-weight: 700;
+  background-color: #1b1d2c;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+#root header a,
+.app header a {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px 30px;
+  border-radius: 5px;
+}
+
+#root header a:hover,
+.app header a:hover {
+  background: #000;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+#root main,
+.app main {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 3rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+#root main .loading,
+.app main .loading {
+  font-size: 32px;
+  min-height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=App.css.map */
