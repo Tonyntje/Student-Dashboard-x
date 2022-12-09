@@ -12,7 +12,6 @@ export async function getStudents() {
     const csv = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRebyURthls2ga-0IZ6mih9VmIuyW2yI9uYW8U0wSW-TL4C6stdM01eCnnwASFnUA/pub?output=csv'
     const results = await fetch(csv)
         .then(response => response.text())
-        // .then(v => Papa.parse(v))
         .catch(err => console.log(err))
         .then(res => res)
 
@@ -21,18 +20,23 @@ export async function getStudents() {
     const storeResult = data
 
 
-    //function voor studenten uitsluiten hier map wanneer er een array met student namen wordt meegegeven
-
     if (!stored) {
         dispatch(updateStudents(storeResult))
         dispatch(makeProfiles(studentProfiles(storeResult)))
     }
-
 }
 
 // Bundle average grades by assignment
 export function assignmentsGroupedByAverages() {
-    const info = useSelector(state => state.Students)
+    const studentFilters = useSelector(state => state.StudentFilters)
+    const initialInfo = useSelector(state => state.Students)
+
+    const info = (studentFilters.length) ? initialInfo.filter(record => studentFilters.includes(record[0])) : initialInfo
+
+
+    console.log(studentFilters)
+    console.log(info)
+
     const assignments = []
     info.forEach(a => (!assignments.includes(a[1])) && assignments.push(a[1]))
 

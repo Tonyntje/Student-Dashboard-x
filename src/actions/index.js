@@ -7,7 +7,6 @@ export const updateStudents = (studentData) => {
     }
 }
 
-
 export const makeProfiles = (studentData) => {
     return {
         type: 'make_profiles',
@@ -28,3 +27,19 @@ export const switchStyle = (style) => {
         payload: style
     }
 }
+
+export const setStudentFilters = (filters) => {
+    return {
+        type: 'set_filters',
+        payload: filters
+    }
+}
+
+export const setMetricFilters = (filters) => {
+    return {
+        type: 'set_metrics',
+        payload: filters
+    }
+}
+
+

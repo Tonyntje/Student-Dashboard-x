@@ -15,15 +15,16 @@ main .bar-container {
 }
 
 main .actions {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 16px;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 0 16px;
+  -ms-grid-columns: auto 200px 145px;
+      grid-template-columns: auto 200px 145px;
 }
 
 main .actions > * {
-  padding: 18px;
-  border-radius: 5px;
+  padding: 9px 15px;
+  border-radius: 0 0 5px 5px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid #3c3e50;
   display: -webkit-box;
@@ -35,14 +36,25 @@ main .actions > * {
           align-items: center;
 }
 
+main .actions > .heading {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px 5px 0 0;
+  border-bottom: 0;
+}
+
 main .actions img {
   width: 20px;
-  background: #fff;
   height: 20px;
   border-radius: 8px !important;
+  background-color: rgba(255, 255, 255, 0.05);
   padding: 13px;
+  border: solid 1px #3e3e3e;
   cursor: pointer;
   position: relative;
+}
+
+main .actions img.active {
+  background: #fff;
 }
 
 main .actions img:active {

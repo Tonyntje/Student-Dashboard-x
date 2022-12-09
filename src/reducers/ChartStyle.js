@@ -3,7 +3,7 @@
 const ChartStyle = (state = true, action) => {
     switch(action.type) {
         case 'switchChartStyle':
-            return !state
+            return action.payload
         default: 
             return state
     }
