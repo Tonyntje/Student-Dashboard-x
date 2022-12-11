@@ -11,6 +11,10 @@ function LineChartDasboard() {
         dispatch(resizeChart(e.target.innerWidth))
     })
 
+    const metrics = useSelector(state => state.MetricFilters)
+    const difficulty = metrics.includes('difficulty')
+    const fun = metrics.includes('fun')
+
     const createGraphs = studentProfiles.map((graphData, index) => {
         return (
             <div className="bar-container" key={index}>
@@ -20,8 +24,8 @@ function LineChartDasboard() {
                     <XAxis dataKey="assignment" />
                     <YAxis />
                     <Legend />
-                    <Line type="monotone" dataKey='Difficulty' fill='#e95e5e' />
-                    <Line type="monotone" dataKey='Fun' stoke='#82ca9d' />
+                    {(difficulty || metrics.length == 0) && <Line type="monotone" dataKey='Difficulty' fill='#e95e5e' />}
+                    {(fun || metrics.length == 0) && <Line type="monotone" dataKey='Fun' stoke='#82ca9d' />}
                 </LineChart>
             </div>
         )

@@ -4,11 +4,13 @@ import ChartStyle from "./ChartStyle"
 import StudentData from "./StudentData"
 import StudentsReducers from './Students'
 import StudentFilters from './StudentFilters'
+import MetricFilters from './MetricFilters'
 
 export default combineReducers({
     Students: StudentsReducers,
     StudentData: StudentData,
     ChartResponse: ChartResponse,
     ChartStyle: ChartStyle,
-    StudentFilters: StudentFilters
+    StudentFilters: StudentFilters,
+    MetricFilters: MetricFilters
 })

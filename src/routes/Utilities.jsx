@@ -33,10 +33,6 @@ export function assignmentsGroupedByAverages() {
 
     const info = (studentFilters.length) ? initialInfo.filter(record => studentFilters.includes(record[0])) : initialInfo
 
-
-    console.log(studentFilters)
-    console.log(info)
-
     const assignments = []
     info.forEach(a => (!assignments.includes(a[1])) && assignments.push(a[1]))
 

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { switchStyle, setStudentFilters } from "../../actions";
+import { switchStyle, setStudentFilters, setMetricFilters } from "../../actions";
 
 export default function FilterActions() {
     const dispatch = useDispatch()
@@ -15,6 +15,11 @@ export default function FilterActions() {
     const studentFilter = uniqStudents.map((student, index) => {
         return <label key={index} htmlFor={student}><input onClick={getActiveStudentFilters} type="checkbox" name="students" id={student} value={student} /> {student}</label>
     })
+
+    const getActiveMetricFilters = () => {
+        const metrics = document.querySelectorAll('input[name="metrics"]')
+        dispatch(setMetricFilters(Array.from(metrics).filter(filter => filter.checked === true).map(e => e.value)))
+    }
 
     return (
         <>
@@ -32,8 +37,8 @@ export default function FilterActions() {
                     {studentFilter}
                 </div>
                 <div className="metricsFilters">
-                    <label htmlFor="difficulty"><input type="checkbox" name="metrics" id="difficulty" value="difficulty" /> Difficulty</label>
-                    <label htmlFor="fun"><input type="checkbox" name="metrics" id="fun" value="fun" />Fun</label>
+                    <label htmlFor="difficulty"><input onClick={getActiveMetricFilters} type="checkbox" name="metrics" id="difficulty" value="difficulty" /> Difficulty</label>
+                    <label htmlFor="fun"><input onClick={getActiveMetricFilters} type="checkbox" name="metrics" id="fun" value="fun" />Fun</label>
                 </div>
                 <div className="chartStyles">
                     <img className={(chartStyle) ? 'active' : ''} onClick={() => { dispatch(switchStyle(true)) }} src='../src/assets/chart-column-solid.svg' />

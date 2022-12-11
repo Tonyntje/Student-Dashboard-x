@@ -23,6 +23,10 @@ function BarChartDasboard() {
         dispatch(resizeChart(e.target.innerWidth))
     })
 
+    const metrics = useSelector(state => state.MetricFilters)
+    const difficulty = metrics.includes('difficulty')
+    const fun = metrics.includes('fun')
+
     const createGraphs = studentProfiles.map((graphData, index) => {
         return (
             <div className="bar-container" key={index}>
@@ -33,8 +37,8 @@ function BarChartDasboard() {
                     <YAxis />
                     <Tooltip contentStyle={tooltipStyle} />
                     <Legend />
-                    <Bar dataKey="Difficulty" fill="#e95e5e" />
-                    <Bar dataKey="Fun" fill="#82ca9d" />
+                    {(difficulty || metrics.length == 0) && <Bar dataKey="Difficulty" fill="#e95e5e" />}
+                    {(fun || metrics.length == 0) && <Bar dataKey="Fun" fill="#82ca9d" />}
                 </BarChart>
             </div>
         )

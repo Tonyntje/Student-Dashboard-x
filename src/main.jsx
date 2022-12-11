@@ -12,6 +12,7 @@ import allReducers from './reducers'
 import Dashboard from './routes/Components/Dashboard'
 import Students from './routes/Components/Students'
 import StudentProfile, { loader as studentloader } from './routes/Components/StudentProfile'
+import TableView from './routes/Components/TableView'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         path: "students/:contactId",
         element: <StudentProfile />,
         loader: studentloader
+      },
+      {
+        path: "tableview",
+        element: <TableView />,
       }
     ],
   }
