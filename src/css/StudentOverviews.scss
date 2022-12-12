@@ -4,10 +4,55 @@
 
 table {
     margin-top: 30px;
+    border: 1px solid #3c3e50;
+    border-radius: 10px;
+    overflow: hidden;
+
+    img {
+        width: 25px;
+        background-color: #fff;
+        border-radius: 0;
+        padding: 5px;
+
+    }
 
     thead {
         background: rgba(0, 0, 0, 1);
         font-weight: 900;
+
+        a {
+            display: flex;
+            color: #fff;
+            background-color: #ffffff29;
+            padding: 5px;
+            border-radius: 5px;
+            font-weight: 700;
+            align-items: center;
+            gap: 20px;
+            justify-content: center;
+
+
+            &:hover {
+                color: #fff;
+
+            }
+
+            img {
+                width: 15px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: ease-in background .2s;
+                background-color: #ffffff29;
+
+                &:hover {
+                    background-color: #fff;
+                }
+
+                &.active {
+                    background-color: #fff;
+                }
+            }
+        }
     }
 
     tr:nth-child(odd) {

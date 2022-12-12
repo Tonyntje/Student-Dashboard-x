@@ -42,4 +42,11 @@ export const setMetricFilters = (filters) => {
     }
 }
 
+export const setTableData = (tableData) => {
+    return {
+        type: 'set_table_data',
+        payload: tableData
+    }
+}
+
 

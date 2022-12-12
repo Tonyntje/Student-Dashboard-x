@@ -19,19 +19,23 @@ export async function getStudents() {
     data.shift()
     const storeResult = data
 
-
     if (!stored) {
         dispatch(updateStudents(storeResult))
         dispatch(makeProfiles(studentProfiles(storeResult)))
     }
 }
 
+// Global data filteren naar nieuwe state
+// Dit was niet mogelijk met het laden
+export function globalData() {
+    const students = useSelector(state => state.Students)
+    const studentFilters = useSelector(state => state.StudentFilters)
+    return (studentFilters.length) ? students.filter(record => studentFilters.includes(record[0])) : students
+}
+
 // Bundle average grades by assignment
 export function assignmentsGroupedByAverages() {
-    const studentFilters = useSelector(state => state.StudentFilters)
-    const initialInfo = useSelector(state => state.Students)
-
-    const info = (studentFilters.length) ? initialInfo.filter(record => studentFilters.includes(record[0])) : initialInfo
+    const info = globalData()
 
     const assignments = []
     info.forEach(a => (!assignments.includes(a[1])) && assignments.push(a[1]))
