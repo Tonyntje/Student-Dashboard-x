@@ -4,8 +4,13 @@ import { useSelector } from "react-redux";
 import LineChartDasboard from "./LinechartDashboard";
 import BarChartDasboard from "./BarchartDashboard";
 import FilterActions from './filterActions';
+import { graphSetup } from '../Utilities';
 
-function Dashboard() {
+export default function Dashboard() {
+
+    const students = useSelector(state => state.Students)
+    const setUp = graphSetup(students)
+
     const chartStyle = useSelector(state => state.ChartStyle)
     return (
         <>
@@ -13,9 +18,7 @@ function Dashboard() {
                 <h1>Student Statistics</h1>
                 <FilterActions />
             </div>
-            {!chartStyle ? <LineChartDasboard /> : <BarChartDasboard />}
+            {!chartStyle ? <LineChartDasboard data={setUp} /> : <BarChartDasboard data={setUp} />}
         </>
     )
 }
-
-export default Dashboard

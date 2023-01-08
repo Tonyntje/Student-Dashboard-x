@@ -8,7 +8,7 @@ import {
 } from "react-router-dom"
 import { createStore } from "redux";
 import { Provider } from 'react-redux'
-import allReducers from './reducers'
+import allReducers from './redux/reducers'
 import Dashboard from './routes/Components/Dashboard'
 import Students from './routes/Components/Students'
 import StudentProfile, { loader as studentloader } from './routes/Components/StudentProfile'

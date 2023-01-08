@@ -1,12 +1,9 @@
-
-import { graphSetup } from "../Utilities"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from "recharts";
 import { useDispatch, useSelector } from "react-redux";
-import { resizeChart } from "../../actions";
+import { resizeChart } from "../../redux/actions";
 
-function BarChartDasboard() {
+export default function BarChartDasboard({ data }) {
     const chartWidht = useSelector(state => state.ChartResponse)
-    const studentProfiles = graphSetup()
     const dispatch = useDispatch()
 
     const tooltipStyle = {
@@ -27,7 +24,7 @@ function BarChartDasboard() {
     const difficulty = metrics.includes('difficulty')
     const fun = metrics.includes('fun')
 
-    const createGraphs = studentProfiles.map((graphData, index) => {
+    const createGraphs = Array.from(data).map((graphData, index) => {
         return (
             <div className="bar-container" key={index}>
                 <h2>{graphData.graphname}</h2>
@@ -48,5 +45,3 @@ function BarChartDasboard() {
         <>{createGraphs}</>
     )
 }
-
-export default BarChartDasboard

@@ -1,13 +1,25 @@
 
 import { Link, Outlet } from 'react-router-dom'
 import '../css/App.css'
-import { useSelector } from 'react-redux'
-import { getStudents } from './Utilities'
+import { useSelector, useDispatch } from 'react-redux'
+import { getStudents, studentProfiles } from './Utilities'
+import { useEffect } from 'react'
+import { makeProfiles, setTableData, updateStudents } from "../redux/actions"
 
-const App = () => {
-
-  getStudents()
+export default function App() {
+  const dispatch = useDispatch()
   const students = useSelector(state => state.Students)
+
+  useEffect(() => {
+    const storeResult = async () => {
+      const results = await getStudents()
+
+      dispatch(updateStudents(results))
+      dispatch(makeProfiles(studentProfiles(results)))
+      dispatch(setTableData(results))
+    }
+    storeResult()
+  }, [])
 
   return (
     <div className="App">
@@ -26,8 +38,3 @@ const App = () => {
     </div>
   )
 }
-
-
-
-export default App
-

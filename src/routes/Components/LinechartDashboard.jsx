@@ -1,12 +1,12 @@
 
-import { graphSetup } from "../Utilities"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Legend } from "recharts";
-import { useSelector } from "react-redux";
-import { resizeChart } from "../../actions";
+import { useDispatch, useSelector } from "react-redux";
+import { resizeChart } from "../../redux/actions";
 
-function LineChartDasboard() {
+export default function LineChartDasboard({ data }) {
     const chartWidht = useSelector(state => state.ChartResponse)
-    const studentProfiles = graphSetup()
+    const dispatch = useDispatch()
+
     window.addEventListener('resize', (e) => {
         dispatch(resizeChart(e.target.innerWidth))
     })
@@ -15,7 +15,7 @@ function LineChartDasboard() {
     const difficulty = metrics.includes('difficulty')
     const fun = metrics.includes('fun')
 
-    const createGraphs = studentProfiles.map((graphData, index) => {
+    const createGraphs = Array.from(data).map((graphData, index) => {
         return (
             <div className="bar-container" key={index}>
                 <h2>{graphData.graphname}</h2>
@@ -35,5 +35,3 @@ function LineChartDasboard() {
         <>{createGraphs}</>
     )
 }
-
-export default LineChartDasboard

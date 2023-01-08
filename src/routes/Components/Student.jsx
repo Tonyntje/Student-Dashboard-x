@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-function Student({ data }) {
+export default function Student({ data }) {
     return (
         <div className="student-profile">
             <h3>{data.naam}</h3>
@@ -9,5 +9,3 @@ function Student({ data }) {
         </div>
     )
 }
-
-export default Student

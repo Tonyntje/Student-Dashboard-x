@@ -22,6 +22,11 @@ main .actions {
       grid-template-columns: auto 200px 145px;
 }
 
+main .actions.tablefilters {
+  -ms-grid-columns: auto 200px;
+      grid-template-columns: auto 200px;
+}
+
 main .actions > * {
   padding: 9px 15px;
   border-radius: 0 0 5px 5px;
